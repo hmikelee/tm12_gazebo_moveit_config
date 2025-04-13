@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="tmr_gazebo" params="ns prefix">
+
+    <gazebo reference="${prefix}link_1">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}link_2">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}link_3">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}link_4">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}link_5">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}link_6">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <ros>
+          <namespace>${ns}</namespace>
+          <!-- <remapping>~/reset_joint_states:=/reset_joint_states</remapping> -->
+        </ros>
+        <!-- <parameters> -->
+          <!-- <use_sim_time>true</use_sim_time> -->
+          <!-- <robot_description>robot_description</robot_description> bad description -->
+        <!-- </parameters> -->
+        <parameters>$(find tm12_gazebo_moveit_config)/config/tm12_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

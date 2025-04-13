@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: tm12_moveit_config
+    relative_path: config/tm12.urdf.xacro
+  srdf:
+    relative_path: config/tm12.srdf
+  package_settings:
+    author_name: Mike Lee
+    author_email: hmikelee@gmail.com
+    generated_timestamp: 1743350774
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
